@@ -20,6 +20,7 @@ export interface Crew {
   reportMinutes: number;
   reserve: boolean;
   base?: string;
+  dutyStartMinutes?: number;
 }
 
 export interface Flight {
@@ -32,6 +33,7 @@ export interface Flight {
   aircraftId: string;
   crewId: string;
   passengers: number;
+  turnaroundBeforeMin?: number;
 }
 
 export interface PassengerConnection {

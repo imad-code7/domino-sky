@@ -105,7 +105,9 @@ export function simulateNetwork(
 
     const previousAircraftReady = aircraftReady.get(assignedAircraftId) ?? Number.NEGATIVE_INFINITY;
     const previousCrewReady = crewReady.get(assignedCrewId) ?? Number.NEGATIVE_INFINITY;
-    const crewStart = crewDutyStart.get(assignedCrewId) ?? flight.scheduledDeparture - crew.reportMinutes;
+    const crewStart = crewDutyStart.get(assignedCrewId)
+      ?? crew.dutyStartMinutes
+      ?? flight.scheduledDeparture - crew.reportMinutes;
     crewDutyStart.set(assignedCrewId, crewStart);
 
     let actualDeparture = Math.max(flight.scheduledDeparture, previousAircraftReady, previousCrewReady);
